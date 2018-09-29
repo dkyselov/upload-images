@@ -1,0 +1,45 @@
+.upload-btn {
+  color: #fff;
+  background-color: #007bff;
+  margin-left: 10px;
+  margin-bottom: 15px;
+}
+
+.file-upload {
+  min-height: 180px;
+  border:1px dotted #343a40;
+  margin-bottom: 15px;
+  text-align: center;
+  padding: 15px;
+  cursor: pointer;
+  color: #343a40;
+}
+
+.file-name {
+  margin-top: 15px;
+  width: 100%;
+}
+
+.progress-spinner {
+  margin-top: 15px;
+}
+
+.progress-spinner ::ng-deep circle{
+  stroke: #ADA8B6;
+}
+
+.response-error {
+  width: 100%;
+}
+
+.done {
+  color: greenyellow;
+}
+
+.success-info {
+  color: #007bff;
+}
+
+.result {
+  padding: 10px 0 0 25px;
+}

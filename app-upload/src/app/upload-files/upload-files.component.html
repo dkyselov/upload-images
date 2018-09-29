@@ -1,0 +1,52 @@
+<div class="row container">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <input type="file" style="display: none" #img
+               name="sampleFile" accept="image/*"
+               (change)="onFileSelected($event, fileInput)" #fileInput>
+        <!--File Selector-->
+        <div class="file-upload col-12" (click)="fileInput.click()">
+            <h5 class="select-title">
+                <i class="material-icons">
+                    attach_file
+                </i>
+                Select File
+            </h5>
+            <h6>(Max file size 1MB)</h6>
+            <img [src]="uploadPreview || 'assets/img/upload.png'" width="100px" alt="">
+            <p *ngIf="selectedFile" class="file-name col-12">{{selectedFile.name}}</p>
+        </div>
+        <!--<button mat-raised-button (click)="fileInput.click()">-->
+        <!--Select File-->
+        <!--</button>-->
+        <div class="row">
+            <div class="col-3">
+                <button mat-raised-button class="upload-btn"
+                        (click)="onUpload(); fileInput.value = ''" [disabled]="!selectedFile">
+                    Upload
+                </button>
+            </div>
+            <div class="col-9 result">
+                <mat-error *ngIf="showError" class="response-error">
+                    Upload Error: {{error}}
+                </mat-error>
+                 <span class="success-info" *ngIf="showSuccess">
+                    <i class="material-icons done">
+                        done
+                    </i> File uploaded...
+                 </span>
+            </div>
+        </div>
+        <!--Upload Progress-->
+        <div class="upload-progress" *ngIf="isRunUpload">
+            <!--Progress Bar-->
+            <mat-progress-bar mode="buffer"></mat-progress-bar>
+            <!--Progress spinner-->
+            <mat-progress-spinner class="progress-spinner"
+                                  mode="determinate"
+                                  [value]="uploadProgress">
+            </mat-progress-spinner>
+        </div>
+    </div>
+    <div class="col-3"></div>
+</div>
